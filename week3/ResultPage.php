@@ -38,7 +38,6 @@ $arrival = $_POST['arrival'];
             <div class="row">
                 <div class="col-3">
                     <h3>Leaving From:
-                        <img src="" alt="">
                     <?php
                     print($planets[$depart]['name']."</h3>");
                     print("<img src='imgs/$depart.jpg' alt ='' >" );
@@ -53,14 +52,15 @@ $arrival = $_POST['arrival'];
                     ?>
                 </div>
                 <div class="col-6">
-                    <h3>Information</h3>
+                    <h3>Information:
+
                     <?php
                     //print the name of the ship, the distance using the function and the time it will take using the speed of the ship they picked
-                    print($ships[$ship]['name']);
+                    printf("the ".$ships[$ship]['name']." ship.");
                     $dist =PlanetDistance($planets[$depart]['x'],$planets[$depart]['y'], $planets[$depart]['z'], $planets[$arrival]['x'], $planets[$arrival]['y'], $planets[$arrival]['z'] );
 
-                    printf('<br> <h3>the distance is %.2f </h3>', $dist);
-                    printf('<br> <h3>the time is %.2f', $dist / $ships[$ship]["speed"]);
+                    printf('<br> The distance is %.2f.', $dist);
+                    printf('<br> The time is %.2f.</h3>', $dist / $ships[$ship]["speed"]);
                     ?>
                 </div>
             </div>
