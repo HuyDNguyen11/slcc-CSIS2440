@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 $info = $_POST;
-
+print_r($_POST);
 #read file for character information
 $file = file_get_contents('RaceInfo.txt');
 $race = explode('}', $file);
@@ -13,7 +13,11 @@ $charCls = array("Fighter" => $class[0] .'}' , "Cleric" => $class[1] .'}', "Thie
 
 #functions
 function imgGen($info){
-    $img = substr($info['Race'],0, 2).substr($info['Class'], 0, 2).substr($info['gender'], 0, 2).".jpg";
+    $gend = $info["gender"];
+    if($info["gender"] == ""){
+        $gend = "Female";
+    }
+    $img = substr($info['Race'],0, 2).substr($info['Class'], 0, 2).substr($gend, 0, 2).".jpg";
     return $img;
 }
 
