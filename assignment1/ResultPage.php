@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php
 $info = $_POST;
-print_r($_POST);
 #read file for character information
 $file = file_get_contents('RaceInfo.txt');
 $race = explode('}', $file);
