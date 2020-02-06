@@ -11,6 +11,7 @@ $charRace = array("Human" => $race[0] .'}' , "Elf" => $race[1] .'}', "Dwarf" => 
 $charCls = array("Fighter" => $class[0] .'}' , "Cleric" => $class[1] .'}', "Thief" => $class[2].'}', "Magic-User" => $class[3].'}');
 
 #functions
+//generate the name of the image file from the information from $info variable
 function imgGen($info){
     $gend = $info["gender"];
     if($info["gender"] == ""){
@@ -20,6 +21,7 @@ function imgGen($info){
     return $img;
 }
 
+//generate random stat for character in range of (3, 18)
 function statGen(){
     $stat = array("Str" => rand(3, 18), "Con" => rand(3, 18), "Dex" => rand(3, 18),
                     "Wis" => rand(3, 18), "Int" => rand(3, 18), "Cha" => rand(3, 18));
