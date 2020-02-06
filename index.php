@@ -19,6 +19,7 @@
         <li><a href="week1/index.php">Week1 assignment</a></li>
         <li><a href="week2/index.php">Week2 assignment</a></li>
         <li><a href="week3/FormPage.php">Week3 assignment</a></li>
+        <li><a href="week4/ReadingExampleForm.php">Week4 assignment</a></li>
 
       </ul>
     </section>

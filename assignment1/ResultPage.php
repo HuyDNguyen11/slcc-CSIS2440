@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <?php
 $info = $_POST;
+$gend = $_POST["gender"];
+$name = $_POST["HeroName"];
+$kingdom = $_POST["KingdomName"];
+$race = $_POST["Race"];
+$class = $_POST["Class"];
+$age = $_POST["Age"];
+
 #read file for character information
 $file = file_get_contents('RaceInfo.txt');
-$race = explode('}', $file);
+$raceTxt = explode('}', $file);
 $file = file_get_contents('ClassInfo.txt');
-$class = explode('}', $file);
+$classTxt = explode('}', $file);
     #assign information to arrays
-$charRace = array("Human" => $race[0] .'}' , "Elf" => $race[1] .'}', "Dwarf" => $race[2].'}', "Halfling" => $race[3].'}');
-$charCls = array("Fighter" => $class[0] .'}' , "Cleric" => $class[1] .'}', "Thief" => $class[2].'}', "Magic-User" => $class[3].'}');
+$charRace = array("Human" => $raceTxt[0] .'}' , "Elf" => $raceTxt[1] .'}', "Dwarf" => $raceTxt[2].'}', "Halfling" => $raceTxt[3].'}');
+$charCls = array("Fighter" => $classTxt[0] .'}' , "Cleric" => $classTxt[1] .'}', "Thief" => $classTxt[2].'}', "Magic-User" => $classTxt[3].'}');
 
 #functions
 //generate the name of the image file from the information from $info variable
-function imgGen($info){
-    $gend = $info["gender"];
-    if($info["gender"] == ""){
+function imgGen($gend, $race, $class){
+    if($gend == ""){
         $gend = "Female";
     }
-    $img = substr($info['Race'],0, 2).substr($info['Class'], 0, 2).substr($gend, 0, 2).".jpg";
+
+    $img = substr($race ,0, 2).substr($class, 0, 2).substr($gend, 0, 2).".jpg";
     return $img;
 }
 
@@ -71,12 +78,12 @@ function statGen(){
                         <?php
                        //print character info here
                        print('<header class="text-center">');
-                       print("<h4>$info[HeroName] from $info[KingdomName]</h4>");
-                       print("<b>$info[Race] $info[Class]</b> at the age $info[Age]");
+                       print("<h4>$name from $kingdom</h4>");
+                       print("<b>$race $class</b> at the age $age");
                        print('</header>');
-                       print($charRace[$info['Race']]);
+                       print($charRace[$race]);
                        print('</br>');
-                       print($charCls[$info['Class']]);
+                       print($charCls[$class]);
 
                         ?>
                     </header>
@@ -86,7 +93,7 @@ function statGen(){
                     <img src="" alt="">
                     <?php
                     //print image here
-                    print("<img src=images/".imgGen($info)." alt =' ' >");
+                    print("<img src=images/".imgGen($gend, $race, $class)." alt =' ' >");
                     ?>
                 </div>
             </div>
