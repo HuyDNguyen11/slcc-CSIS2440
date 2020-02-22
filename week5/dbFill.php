@@ -1,4 +1,7 @@
 <?php
+include 'databaseConnection.php';
+
+
 $planets = array(
 array("name" => "Ares",
 "x" => 335,
@@ -101,6 +104,99 @@ array("name" => "Biel-Corp II",
 array("name" => "VD Behemoth",
 "speed" => 0.5)
 );
-
-
+$i = 0;
+$station = true;
+foreach ($planets  as $planet){
+    $str = "Y";
+    if($station){
+        $str = "Y";
+    }else {
+        $str = "N";
+    }
+    $station ^= true;
+    $q = "Insert into planets (`idPlanet`, `PlanetName`, `PosX`, `PosY`, `PosZ`, `Description`, `Active`) values($i, '$planet[name]', $planet[x], $planet[y], $planet[z], '$planet[description]', '$str');";
+    $i++;
+    $conn->query($q);
+    echo $conn->error."<br>";
+}
 ?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link href="../bootstrap/css/freelancer.min.css" rel="stylesheet" type="text/css"/>
+        <style media="screen">
+        hr {
+display: block;
+margin-before: 0.5em;
+margin-after: 0.5em;
+margin-start: auto;
+margin-end: auto;
+overflow: hidden;
+border-style: inset;
+border-width: 1px;
+}
+
+        </style>
+    </head>
+    <body>
+        <?php
+        echo "<hr>";
+        echo "<h3>Making some visitable.</h3>";
+        $q = "select * from Planets";
+        $res = $conn->query($q);
+        $station = true;
+        while($row = $res->fetch_assoc()){
+            if($row['Active'] == "Y"){
+                echo "<b>".$row['PlanetName']." was given a space station.</b><br>";
+            }
+        }
+        echo "<hr>";
+        ?>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-2">
+                    <p><b>Name</b></p>
+                </div>
+                <div class="col-2">
+                    <p><b>X,Y,Z</b></p>
+                </div>
+                <div class="col-6 text-center">
+                    <p><b>Description</b></p>
+                </div>
+                <div class="col-2">
+                    <p><b>Station</b></p>
+                </div>
+            </div>
+                <?php
+                    $q = "select * from Planets";
+                    $res = $conn->query($q);
+                    $station = true;
+                    while($row = $res->fetch_assoc()){
+                        echo "<div class='row vertical-align'>";
+                            echo "<div class='col-2'>";
+                            echo $row['PlanetName'];
+                            echo "</div>";
+
+
+                            echo "<div class='col-2'>";
+                            echo $row['PosX'].", ".$row['PosY'].", ".$row['PosZ'];
+                            echo "</div>";
+
+                            echo "<div class='col-6'>";
+                            echo $row['Description'];
+                            echo "</div>";
+
+                            echo "<div class='col-2'>";
+                            echo $row['Active'];
+                            echo "</div>";
+                        echo "</div>";
+                        echo "<hr>";
+
+                    }
+                ?>
+        </div>
+
+    </body>
+</html>
