@@ -97,7 +97,7 @@ $action = $_POST['Action'];
             </div>
             <div class="row">
                 <div class="col-sm-8">
-                <form class="form-horizontal" action="formPage.php" method="post">
+                <form class="form-horizontal" action="resultPage.php" method="post">
                     <div class="form-group">
                         <?php
                             if (isset($_POST['submit']) || $sneaky == 1) {
@@ -145,7 +145,7 @@ $action = $_POST['Action'];
                                         </select>
                                       </div>
                                     </div>
-                                    
+
                                     <div class="form-group" id="firstnameblock">
                                          <label for="firstname" class= "col-md-8 control-label">First Name</label>
                                          <input type="text" name="firstname" id="firstName" placeholder="enter first name" class="form-control input-md">
