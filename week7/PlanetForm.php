@@ -75,27 +75,27 @@ $action = $_POST['Action'];
                                 }
                                 print<<<HTML
                                 <!-- Button -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="UnSubmit">Submit</label>
-  <div class="col-md-4">
-    <input id="submit" name="UnSubmit" class="btn btn-primary" type="submit"></input>
-  </div>
-</div>
-    <input type='hidden' value=0 name='sneaky'></input></fieldset>
-HTML;
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="UnSubmit">Submit</label>
+                                    <div class="col-md-4">
+                                        <input id="submit" name="UnSubmit" class="btn btn-primary" type="submit"></input>
+                                    </div>
+                                </div>
+                                <input type='hidden' value=0 name='sneaky'></input></fieldset>
+                                HTML;
                             } else {
                                 //show the form
                                 print <<<HTML
-<fieldset>
+                                <fieldset>
 
 <!-- Form Name -->
 <legend>Planet Form</legend>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="PlanetName">Planet Name</label>
+  <label class="col-md-1 control-label" for="PlanetName">Planet Name</label>
   <div class="col-md-4">
-  <input id="PlanetName" name="PlanetName" type="text" placeholder="Earth" class="form-control input-md" required="">
+  <input id="PlanetName" name="PlanetName" type="text" placeholder="Earth" class="form-control input-md" required="false">
   <span class="help-block">Name of the planets need to be unique</span>
   </div>
 </div>

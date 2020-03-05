@@ -16,12 +16,14 @@
       <ul>
         <li><a href="Portfolio/index.php">E-portfolio</a></li>
         <li><a href="assignment1/FormPage.php">Assignment1</a></li>
+        <li><a href="assignment2/formPage.php">Assignment2</a></li>
         <li><a href="week1/index.php">Week1 assignment</a></li>
         <li><a href="week2/index.php">Week2 assignment</a></li>
         <li><a href="week3/FormPage.php">Week3 assignment</a></li>
         <li><a href="week4/ReadingExampleForm.php">Week4 assignment</a></li>
         <li><a href="week6/databaseConnection.php">Week6 assignment</a></li>
         <li><a href="week7/PlanetForm.php">Week7 assignment</a></li>
+        <li><a href="week8/LoginPage.php">Week8 assignment</a></li>
 
       </ul>
     </section>
